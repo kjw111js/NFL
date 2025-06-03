@@ -1,0 +1,12 @@
+#finalSchedule {
+  border: 2px solid green;
+}
+
+#finalSchedule th {
+  border: 1px double orange;
+  font-size: 1.25em;
+}
+
+#finalSchedule td {
+  border: 1px dashed black;
+}
