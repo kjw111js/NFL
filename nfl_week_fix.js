@@ -3,34 +3,21 @@
 let allGames = [];
 
 //Get just the schedule data
-Array.from(document.getElementsByClassName("nfl-c-matchup-strip")).forEach(
-  clearRecords
-);
+Array.from(document.getElementsByClassName("nfl-c-matchup-strip")).forEach(clearRecords);
 
 //Cleanup and collect schedule data
 function clearRecords(strip) {
-  console.log(strip.textContent);
   let date = "TBD";
-  if (
-    strip.getElementsByClassName("nfl-c-matchup-strip__date-time")[0] !=
-    undefined
-  ) {
-    date = strip.getElementsByClassName("nfl-c-matchup-strip__date-time")[0]
-      .textContent;
+  if (strip.getElementsByClassName("nfl-c-matchup-strip__date-time")[0] != undefined) {
+    date = strip.getElementsByClassName("nfl-c-matchup-strip__date-time")[0].textContent;
     date = date.replaceAll("EDT", "");
   }
   let tv = "TBD";
-  if (
-    strip.getElementsByClassName("nfl-c-matchup-strip__networks")[0] !=
-    undefined
-  ) {
-    tv = strip.getElementsByClassName("nfl-c-matchup-strip__networks")[0]
-      .textContent;
+  if (strip.getElementsByClassName("nfl-c-matchup-strip__networks")[0] != undefined) {
+    tv = strip.getElementsByClassName("nfl-c-matchup-strip__networks")[0].textContent;
   }
-  let home = strip.getElementsByClassName("nfl-c-matchup-strip__team")[1]
-    .textContent;
-  let away = strip.getElementsByClassName("nfl-c-matchup-strip__team")[0]
-    .textContent;
+  let home = strip.getElementsByClassName("nfl-c-matchup-strip__team")[1].textContent;
+  let away = strip.getElementsByClassName("nfl-c-matchup-strip__team")[0].textContent;
   const record = /\(\d(-\d){1,2}\)/g;
   const replaceList = [
     [record, ""],
@@ -99,8 +86,5 @@ function styleGames(getGame) {
     cell.appendChild(text);
     row.appendChild(cell);
   }
-  document
-    .getElementById("main-content")
-    .getElementsByTagName("table")[0]
-    .appendChild(row);
+  document.getElementById("main-content").getElementsByTagName("table")[0].appendChild(row);
 }
