@@ -1,5 +1,3 @@
-//Browser console program for non-spoiler recording and viewing games
-
 const nfl = ['Arizona Cardinals','Atlanta Falcons','Baltimore Ravens','Buffalo Bills','Carolina Panthers','Chicago Bears','Cincinnati Bengals','Cleveland Browns','Dallas Cowboys','Denver Broncos','Detroit Lions','Green Bay Packers','Houston Texans','Indianapolis Colts','Jacksonville Jaguars','Kansas City Chiefs','Las Vegas Raiders','Los Angeles Chargers','Los Angeles Rams','Miami Dolphins','Minnesota Vikings','New England Patriots','New Orleans Saints','New York Giants','New York Jets','Philadelphia Eagles','Pittsburgh Steelers','San Francisco 49ers','Seattle Seahawks','Tampa Bay Buccaneers','Tennessee Titans','Washington Commanders'];
 
 /*
@@ -135,6 +133,52 @@ if (location.href.endsWith('stream/listings')) {
       childList: true,
       subtree: true
     });
+  }
+}
+
+/*
+Saved > Recording (xfinity.com/stream/recordings)
+Keep console window high!
+Scroll down a little to load listings
+*/
+
+if (location.href.endsWith('stream/recordings')) {
+  Array.from(document.getElementsByTagName('tv-list-row')).forEach(checkShows);
+
+  function checkShows (show) {
+    if (show.getElementsByTagName('h1')[0]) {
+      nfl.forEach(checkNFL);
+    }
+   
+    function checkNFL (team) {
+      let showTitle = show.getElementsByTagName('h1')[0].textContent;
+      if (showTitle.includes(team)) {
+        show.getElementsByTagName('h1')[0].textContent = randomGame(10) + ' vs ' + randomGame(10);
+      }
+    }
+  }
+}
+
+/*
+Saved > Scheduled (xfinity.com/stream/scheduled)
+Keep console window high!
+Scroll down a little to load listings
+*/
+
+if (location.href.endsWith('stream/scheduled')) {
+  Array.from(document.getElementsByTagName('tv-list-row-group')).forEach(checkShows);
+
+  function checkShows (show) {
+    if (show.getElementsByTagName('h1')[0]) {
+      nfl.forEach(checkNFL);
+    }
+   
+    function checkNFL (team) {
+      let showTitle = show.getElementsByTagName('h1')[0].textContent;
+      if (showTitle.includes(team)) {
+        show.getElementsByTagName('h1')[0].textContent = randomGame(10) + ' vs ' + randomGame(10);
+      }
+    }
   }
 }
 
