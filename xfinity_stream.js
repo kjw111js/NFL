@@ -143,7 +143,7 @@ Keep console window high!
 Scroll down a little to load listings
 */
 
-if (location.href.endsWith('stream/recordings')) {
+if (location.href.includes('stream/recordings')) {
   Array.from(document.getElementsByTagName('tv-list-row')).forEach(checkShows);
 
   function checkShows (show) {
