@@ -27,6 +27,7 @@ if (location.href.endsWith('stream')) {
       if (showTitle.includes(team)) {
         show.getElementsByClassName('carousel-label')[0].textContent = randomGame(10) + ' vs ' + randomGame(10);
         show.getElementsByClassName('tv-image')[0].setAttribute('src','https://edge.myriad-gn-xcr.xcr.comcast.net/select/image?entityId=7082181797443028112&width=320&ratio=4x3');
+        console.log('Check Show SUCCESS');
       }
     }
   }
@@ -154,6 +155,7 @@ if (location.href.endsWith('stream/recordings')) {
       let showTitle = show.getElementsByTagName('h1')[0].textContent;
       if (showTitle.includes(team)) {
         show.getElementsByTagName('h1')[0].textContent = randomGame(10) + ' vs ' + randomGame(10);
+        console.log('Check Show SUCCESS');
       }
     }
   }
@@ -177,6 +179,7 @@ if (location.href.endsWith('stream/scheduled')) {
       let showTitle = show.getElementsByTagName('h1')[0].textContent;
       if (showTitle.includes(team)) {
         show.getElementsByTagName('h1')[0].textContent = randomGame(10) + ' vs ' + randomGame(10);
+        console.log('Check Show SUCCESS');
       }
     }
   }
